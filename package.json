@@ -1,0 +1,23 @@
+{
+  "name": "coolcatsopenseacollectionsnapshotting",
+  "version": "1.0.0",
+  "description": "A simple snippet to snapshot the owners of an opensea collection",
+  "main": "snapshotter.js",
+  "scripts": {
+    "start": "node src/snapshotter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoolCatsNFTPublic/CoolCatsOpenseaCollectionSnapshotting.git"
+  },
+  "author": "Grampa_Bacon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoolCatsNFTPublic/CoolCatsOpenseaCollectionSnapshotting/issues"
+  },
+  "homepage": "https://github.com/CoolCatsNFTPublic/CoolCatsOpenseaCollectionSnapshotting#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1"
+  }
+}
