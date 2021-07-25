@@ -64,7 +64,7 @@ async function snapShot(slug, address, totalTokens) {
     });
 }
 
-// Change
+// Combine snapshots.
 async function combineSnapShots() {
     const l1 = JSON.parse(fs.readFileSync('./snapshots/cxllabsHolders.json', 'utf8'));
     const l2 = JSON.parse(fs.readFileSync('./snapshots/ghxstHolders.json', 'utf8'));
