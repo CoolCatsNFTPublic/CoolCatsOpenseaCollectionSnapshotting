@@ -2,7 +2,7 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 /**
- * Returns x raised to the n-th power.
+ * Creates a file containing all the owners for a given collection.
  *
  * @param {string} slug The collection slug on opensea
  * @param {string} address The contract address of the collection
