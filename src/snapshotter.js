@@ -58,8 +58,36 @@ async function snapShot(slug, address, totalTokens) {
     console.log('total holders', Object.keys(holderAddresses).length);
 
     // Write holders to json file
-    fs.writeFile(`./src/snapshots/${slug}-holders.json`, JSON.stringify(holderAddresses),{ flag: 'w' },function (err) {
+    fs.writeFile(`./src/snapshots/${slug}-holders.json`, JSON.stringify(holderAddresses), {flag: 'w'}, function(err) {
         // Log error if fail saving fails.
+        if (err) return console.log(err);
+    });
+}
+
+// Change
+async function combineSnapShots() {
+    const l1 = JSON.parse(fs.readFileSync('./snapshots/cxllabsHolders.json', 'utf8'));
+    const l2 = JSON.parse(fs.readFileSync('./snapshots/ghxstHolders.json', 'utf8'));
+    const l3 = JSON.parse(fs.readFileSync('./snapshots/ghxstsCxltureHolders.json', 'utf8'));
+    const l4 = JSON.parse(fs.readFileSync('./snapshots/holders.json', 'utf8'));
+    const l5 = JSON.parse(fs.readFileSync('./snapshots/pxinGxngHolders.json', 'utf8'));
+
+    const arr = [l1, l2, l3, l4, l5];
+    const allHolders = {}
+
+    for (const obj of arr) {
+        const keys = Object.keys(obj);
+        for (let key of keys) {
+            key = key.toLowerCase();
+            if (!allHolders[key]) {
+                allHolders[key] = 1;
+            } else {
+                allHolders[key]++;
+            }
+        }
+    }
+    // save
+    fs.writeFile('allHolders.json', JSON.stringify(allHolders), {flag: 'w'}, function(err) {
         if (err) return console.log(err);
     });
 }
